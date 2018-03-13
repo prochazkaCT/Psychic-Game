@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sharon's Psychic Game</title>
+  </head>
+  <body>
+
+    <h1>The Psychic Game!!</h1>
+    <h3>Guess what letter I'm thinking of</h3>
+    <p id = "wins"></p>
+    <p id = "losses"></p>
+    <p id = "userguess"></p>
+    <p id = "guessesleft"></p>
+
+    <script type="text/javascript">
+
+    //VARIABLES
+
+      var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+      var totalGuess = ["1", "2", "3","4","5","6","7","8","9"];
+
+      var guesses = [];
+      var userGuess; 
+      var wins = 0;
+      var losses = 0;
+      var guessIndex = 0;
+
+
+      var computerGuess = letters[Math.floor(Math.random() * letters.length)];
+      console.log(computerGuess);
+
+      //FUNCTIONS
+      //for now they are written to the console, then I will figure how to add them via html
+
+
+      document.onkeyup = function(event) {
+
+        var userGuess = event.key.toLowerCase();
+        console.log(userGuess);
+      
+        for (var i = 1; i < 10; i++) {
+          if (userGuess === computerGuess) {
+          wins++;
+          updateScore();
+          }
+      
+          else if (userGuess !== computerGuess) {
+          losses++;
+          updateScore();
+          }
+        } 
+      }  
+
+      function updateScore()   {
+        document.querySelector("#wins").innerHTML = "Score: " + wins;
+      }
+
+      playGame();
+      updateScore();  
+      
+     
+      // else if (userGuess !== computerGuess) {
+      
+      // }
+        
+
+  // Next, we give JavaScript a function to execute when onkeyup event fires. on any key up. moment let go it registers it cpatures. setting the textContent to whatever the keystroke was. The event is the typing to capture the key up. Have to make sure you grab the right text by changing the userText.textContent 
+//   var userText = document.getElementById("user-text");
+
+//   document.onkeyup = function(event) {
+//         userText.textContent = event.key;
+//       };
+
+//  // It then takes the user's response and "pushes" (or adds) the variable to the end of the favTVshows array.
+//  favTVshows.push(tvShow);
+//       }
+
+
+
+
+    </script>
+  </body>
+</html>
